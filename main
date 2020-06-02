@@ -15,7 +15,7 @@ int main()
     char **s2 = NULL;
     char s1[maxlen];
     char sep;//разделитель
-    printf("Hello! press enter to start ");
+    printf("Hello! Press enter to start ");
     sep=';';
     FILE *df;
     p0 = make_head();

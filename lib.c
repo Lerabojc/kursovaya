@@ -468,6 +468,11 @@ void vibor(Head *p0, char sep, char **s2){//выбор пользователя
                 }
                 if (vibor==2){//добавление
                     p=p0->first;
+                    while(p->next!=NULL)
+                    {
+                        struct_out(p);
+                        p=p->next;
+                    }
                     s2=add_node(sep);//создание элемента
                     my_node=create_node2(s2);//создание элемента
                     insert_before2(p0, my_node, p);

@@ -179,6 +179,20 @@ void delete_selected(Head *my_head, Node *current_node)//удаление эле
         }
     }
 }
+int safe_scanf()
+{
+    int chooce = -1;
+    char str[100];
+
+    scanf("%s", str);
+
+    while(sscanf(str, "%d", &chooce) != 1) {
+        printf("Incorrect input! Try again use only numbers!\n");
+        scanf("%s" , str);
+    }
+
+    return chooce;
+}
 char **simple_split(char *str, int length, char sep)//разделение полученной строки на элементы
 {
     char **str_array=NULL;
@@ -461,6 +475,60 @@ void Found(Head *p0, int vibor2){//функция поиска, вводится
             Found2(p0, kol, s, vibor2);
 }
 
+
+Node *create_node_enter()//ввод с консоли
+{
+    int MAXLEN=128;
+    Node *new_node=NULL;
+
+    new_node = (Node*)malloc(sizeof(Node));
+    if(new_node)
+    {
+        new_node = (Node*)malloc(sizeof(Node));
+    	new_node->name=(char*)malloc(MAXLEN*sizeof(char));
+
+   		new_node->group=(char*)malloc(MAXLEN*sizeof(char));
+   		new_node->spec=(char*)malloc(MAXLEN*sizeof(char));
+
+   		printf("Enter name:");
+   		getchar();
+    	fgets((*new_node).name,MAXLEN,stdin);
+    	fflush(stdin);
+    	printf("Enter gender:");
+    	scanf("%c", &(*new_node).gender);
+    	fflush(stdin);
+    	printf("Enter year of birth:");
+    	(*new_node).year_of_birth=safe_scanf();
+    	printf("Enter code:");
+    	fflush(stdin);
+    	fgets((*new_node).spec,MAXLEN,stdin);
+    	printf("Enter course:");
+    	(*new_node).year=safe_scanf();
+    	fflush(stdin);
+    	printf("Enter group:");
+    	fgets((*new_node).group,MAXLEN,stdin);
+    	fflush(stdin);
+    	printf("Enter balls:");
+    	(*new_node).balls=safe_scanf();
+    	printf("Enter average:");
+    	(*new_node).average=safe_scanf();
+    	printf("Enter exame1:");
+    	(*new_node).exame[0]=safe_scanf();
+    	printf("Enter exame2:");
+    	(*new_node).exame[1]=safe_scanf();
+
+        new_node->name[strlen(new_node->name)-1]='\0';
+
+    	new_node->group[strlen(new_node->group)-1]='\0';
+    	new_node->spec[strlen(new_node->spec)-1]='\0';
+    	new_node->prev = NULL;
+    	new_node->next = NULL;
+    }
+    return new_node;
+}
+
+
+
 void vibor(Head *p0, char sep, char **s2){//выбор пользователя
         Node *my_node=NULL;
         int vibor=0;
@@ -469,6 +537,7 @@ void vibor(Head *p0, char sep, char **s2){//выбор пользователя
         while (vibor!=7){// 7 - выход
                 menu();// вывод меню и считывание
                 scanf("%d", &vibor);
+
 
                 if (vibor==1){//удаление
                     p=p0->first;
@@ -481,8 +550,8 @@ void vibor(Head *p0, char sep, char **s2){//выбор пользователя
 
                         p=p->next;
                     }
-                    s2=add_node(sep);//создание элемента
-                    my_node=create_node2(s2);//создание элемента
+
+                    my_node=create_node_enter();//создание элемента
                     insert_before2(p0, my_node, p);
                     p=my_node;
                 }
@@ -623,6 +692,9 @@ void vibor(Head *p0, char sep, char **s2){//выбор пользователя
                         }
 
                 }
+
+
+
 
         }
 }

@@ -15,8 +15,8 @@ int main()
     char **s2 = NULL;
     char s1[maxlen];
     char sep;//разделитель
-    printf("Enter your separator symbol: ");//ввод разделителя
-    scanf("%c", &sep);
+    printf("Hello! press enter to start ");
+    sep=';';
     FILE *df;
     p0 = make_head();
 

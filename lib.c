@@ -143,9 +143,16 @@ void delete_selected(Head *my_head, Node *current_node)//удаление эле
     my_head->cnt--;
     if(current_node==q)//если удаляемый элемент заголовок
     {
+        q=q->next;
+        while(q!=NULL){
+                q->id=q->id-1;
+                printf("u");
+                q=q->next;
+            }
         my_head->first=current_node->next;
         current_node->next=NULL;
         free(current_node);
+
 
     }
     else
@@ -288,6 +295,7 @@ fflush(stdin);
             s=NULL;
     }
 
+    s[i]='\0';
 
 
     return s;
@@ -470,7 +478,7 @@ void vibor(Head *p0, char sep, char **s2){//выбор пользователя
                     p=p0->first;
                     while(p->next!=NULL)
                     {
-                        struct_out(p);
+
                         p=p->next;
                     }
                     s2=add_node(sep);//создание элемента

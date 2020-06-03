@@ -524,17 +524,19 @@ void vibor(Head *p0, char sep, char **s2){//выбор пользователя
         Node *p;
         p=p0->first;
         while (vibor != 7){// 7 - выход
-            system("CLS");
+
 
                 menu();// вывод меню и считывание
                 vibor=safe_scanf();
                 if (vibor==1){//удаление
+                    system("CLS");
                     p=p0->first;
                     delete(p0);
-                    system("CLS");
+
 
                 }
                 if (vibor==2){//добавление
+                    system("CLS");
                     p=p0->first;
                     while(p->next!=NULL)
                     {
@@ -543,10 +545,11 @@ void vibor(Head *p0, char sep, char **s2){//выбор пользователя
                     my_node=create_node_enter();//создание элемента
                     insert_before2(p0, my_node, p);
                     p=my_node;
-                    system("CLS");
+
 
                 }
                 if (vibor==3){//вывод списка
+                        system("CLS");
                     p=p0->first;
                     print_header();
                     while(p!=NULL)
@@ -556,6 +559,7 @@ void vibor(Head *p0, char sep, char **s2){//выбор пользователя
                     }
                 }
                 if(vibor==4){//поиск по полю
+                    system("CLS");
 
                     int vibor2=0;
                     menu2();
@@ -574,6 +578,7 @@ void vibor(Head *p0, char sep, char **s2){//выбор пользователя
 
                 }
                 if(vibor==5){//редактирование
+                        system("CLS");
                     printf("\nEnter nomer cartochki:");
                     int nomer;
                     nomer=safe_scanf();
@@ -665,10 +670,11 @@ void vibor(Head *p0, char sep, char **s2){//выбор пользователя
                         struct_out(p);
                         p=p->next;
                     }
-                    system("CLS");
+
 
                 }
                 if(vibor==6){
+                        system("CLS");
                     int vibor3;
                     printf("\n Enter kind of sort\n 1- by course\n 2- by year_of_birth\n 3- by average\n 4- exit\n Your choice:");
                     vibor3=safe_scanf();
@@ -685,7 +691,7 @@ void vibor(Head *p0, char sep, char **s2){//выбор пользователя
                             struct_out(p);
                             p=p->next;//переход
                         }
-                        system("CLS");
+
 
 
                 }

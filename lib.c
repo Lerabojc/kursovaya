@@ -267,7 +267,7 @@ void delete(Head *p0){//удаление элемента
     int n;
     Node *p;
         printf("%s: ","\nPlease enter your number");//поиск элемента для удаления
-        n==safe_scanf();
+        n=safe_scanf();
         p=select_by_id(p0, n);
         if(p!=NULL)
         {
@@ -682,7 +682,7 @@ void vibor(Head *p0, char sep, char **s2){//выбор пользователя
 
                     }
                     print_header();//вывод списка
-
+                    p=p0->first;
                     while(p!=NULL)
                         {
                             struct_out(p);

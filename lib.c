@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 struct LNode
 {
@@ -197,8 +198,9 @@ char **simple_split(char *str, int length, char sep)//разделение по�
 {
     char **str_array=NULL;
     int i,j,k,m;
+    m=0;
     int key,count;
-    for(j=0,m=0;j<length;j++)//подсчет элементов
+    for(j=0;j<length;j++)//подсчет элементов
     {
         if(str[j]==sep) m++;
     }
@@ -256,6 +258,7 @@ void zapis(Node *str0, FILE *df)//создание итогового файла
         str0->id,str0->name,str0->gender,str0->year_of_birth,str0->spec,str0->year,str0->group,str0->balls,str0->average,str0->exame[0],str0->exame[1]);
 }
 void menu(){//основное меню
+
     printf("\n  1- delete element\n 2- add element\n 3- print spisok\n 4- Found\n 5- redaction\n 6- sortirovka\n 7- exit\n Your choice: ");
 }
 
@@ -477,7 +480,7 @@ Node *create_node_enter()//ввод с консоли
    		new_node->spec=(char*)malloc(MAXLEN*sizeof(char));
 
    		printf("Enter name:");
-
+        fflush(stdin);
     	fgets((*new_node).name,MAXLEN,stdin);
     	fflush(stdin);
     	printf("Enter gender:");
@@ -521,11 +524,15 @@ void vibor(Head *p0, char sep, char **s2){//выбор пользователя
         Node *p;
         p=p0->first;
         while (vibor != 7){// 7 - выход
+            system("CLS");
+
                 menu();// вывод меню и считывание
                 vibor=safe_scanf();
                 if (vibor==1){//удаление
                     p=p0->first;
                     delete(p0);
+                    system("CLS");
+
                 }
                 if (vibor==2){//добавление
                     p=p0->first;
@@ -536,6 +543,8 @@ void vibor(Head *p0, char sep, char **s2){//выбор пользователя
                     my_node=create_node_enter();//создание элемента
                     insert_before2(p0, my_node, p);
                     p=my_node;
+                    system("CLS");
+
                 }
                 if (vibor==3){//вывод списка
                     p=p0->first;
@@ -561,6 +570,8 @@ void vibor(Head *p0, char sep, char **s2){//выбор пользователя
                         menu2();
                         scanf("%d", &vibor2);
                     }
+
+
                 }
                 if(vibor==5){//редактирование
                     printf("\nEnter nomer cartochki:");
@@ -654,6 +665,8 @@ void vibor(Head *p0, char sep, char **s2){//выбор пользователя
                         struct_out(p);
                         p=p->next;
                     }
+                    system("CLS");
+
                 }
                 if(vibor==6){
                     int vibor3;
@@ -672,6 +685,8 @@ void vibor(Head *p0, char sep, char **s2){//выбор пользователя
                             struct_out(p);
                             p=p->next;//переход
                         }
+                        system("CLS");
+
 
                 }
                 if((vibor<1)||(vibor>7)){

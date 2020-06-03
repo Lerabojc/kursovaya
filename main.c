@@ -2,21 +2,22 @@
 #include <stdlib.h>
 #include "lib.c"
 #include <string.h>
-#define OS_TYPE linux
+
 
 
 
 int main()
 {
-    Head *p0;
+    Head *p0, *p1;
     Node *p,*my_node = NULL;
     enum {maxlen = 256};//максимум символов
-    int slen, i, count, n;
+    int slen, i, n;
     char **s2 = NULL;
     char s1[maxlen];
     char sep;//разделитель
-    printf("Hello! Press enter to start ");
+    printf("Hello! press  to start ");
     sep=';';
+
     FILE *df;
     p0 = make_head();
 
@@ -27,7 +28,7 @@ int main()
         while((fgets(s1,maxlen,df)) != NULL) n++;//считываем тсроки
         rewind(df);
 
-        for(i = 0,count = 0; i < n; i++,count++)//записываем элементы в структуры
+        for(i = 0; i < n; i++)//записываем элементы в структуры
             {
                 fgets(s1,maxlen,df);
                 slen = strlen(s1);
@@ -49,6 +50,7 @@ int main()
                 }
                 else puts("Error at data reading!");
             }
+
         fclose(df);
         getchar();
         p = p0->first;
@@ -64,16 +66,25 @@ int main()
         vibor(p0, sep, s2);
         df = fopen("itog.csv","a");
         p = p0->first;
-        while(p !=NULL)
+        while(p != NULL)
         {
             zapis(p, df);
             p = p->next;//переход
         }
-        Clear(p0);
+
 
 
     }
     else puts("File not found!");
+    p=p0->first;//очищение памяти
+    while(p!=NULL)
+    {
+        p1=p->next;
+        ClearStructure(p);
+
+        p=p1;
+    }
+    free(p0);
 
     return 0;
 }

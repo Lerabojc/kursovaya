@@ -146,7 +146,7 @@ void delete_selected(Head *my_head, Node *current_node)//удаление эле
         q=q->next;
         while(q!=NULL){
                 q->id=q->id-1;
-                printf("u");
+
                 q=q->next;
             }
         my_head->first=current_node->next;
@@ -157,7 +157,7 @@ void delete_selected(Head *my_head, Node *current_node)//удаление эле
     }
     else
     {
-        int l=0;
+
         while(q!=NULL)//перебор элементов
         {
 
@@ -534,11 +534,11 @@ void vibor(Head *p0, char sep, char **s2){//выбор пользователя
         int vibor=0;
         Node *p;
         p=p0->first;
-        while (vibor!=7){// 7 - выход
+        while (vibor != 7){// 7 - выход
+
+
                 menu();// вывод меню и считывание
                 scanf("%d", &vibor);
-
-
                 if (vibor==1){//удаление
                     p=p0->first;
                     delete(p0);
@@ -547,10 +547,8 @@ void vibor(Head *p0, char sep, char **s2){//выбор пользователя
                     p=p0->first;
                     while(p->next!=NULL)
                     {
-
                         p=p->next;
                     }
-
                     my_node=create_node_enter();//создание элемента
                     insert_before2(p0, my_node, p);
                     p=my_node;
@@ -692,6 +690,7 @@ void vibor(Head *p0, char sep, char **s2){//выбор пользователя
                         }
 
                 }
+
 
 
 

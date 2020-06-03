@@ -674,7 +674,9 @@ void vibor(Head *p0, char sep, char **s2){//выбор пользователя
                         }
 
                 }
-
+                if((vibor<1)||(vibor>7)){
+                    printf("Error! Please enter number from 1 to 7");
+                }
 
 
 

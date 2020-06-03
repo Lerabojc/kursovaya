@@ -701,17 +701,3 @@ void vibor(Head *p0, char sep, char **s2){//выбор пользователя
 }
 
 
-void Clear(Head *p0){
-    Node *p, *p1;
-    p=p0->first;//очищение памяти
-    while(p!=NULL)
-    {
-        p1=p->next;
-        ClearStructure(p);
-        free(p);
-        p=p1;
-    }
-    free(p0);
-}
-
-

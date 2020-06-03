@@ -414,21 +414,7 @@ void sort(Head *p0, int vibor)//сортировка
         }
     }
 }
-char **add_node(char sep){//запись с консоли
 
-
-    char **s2=NULL;
-    char s[200];
-    printf("Enter dannye like Name;gender;year_of_birth;kod_of_student;course;group;balls;average;exame1;exame2;\n");
-    gets(s);
-    int slen;
-    slen=strlen(s);
-    s[slen-1]='\0';
-    slen=strlen(s);
-    s2=simple_split(s,slen,sep);//разделяем на элементы
-
-    return s2;
-}
 void Found2(Head *p0, int kol, char s[21], int vibor2){//в зависимости от выбора по списку ищется нужное поле
     int k=0;
     Node *p;
@@ -491,7 +477,7 @@ Node *create_node_enter()//ввод с консоли
    		new_node->spec=(char*)malloc(MAXLEN*sizeof(char));
 
    		printf("Enter name:");
-   		getchar();
+
     	fgets((*new_node).name,MAXLEN,stdin);
     	fflush(stdin);
     	printf("Enter gender:");
@@ -535,8 +521,6 @@ void vibor(Head *p0, char sep, char **s2){//выбор пользователя
         Node *p;
         p=p0->first;
         while (vibor != 7){// 7 - выход
-
-
                 menu();// вывод меню и считывание
                 vibor=safe_scanf();
                 if (vibor==1){//удаление

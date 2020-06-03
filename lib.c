@@ -282,13 +282,8 @@ void delete(Head *p0){//удаление элемента
             p=p0->first;
         }
         else printf("ERROR! Element not exists!\n");//если не введен или отсутствует
-        p=p0->first;//вывод нового списка
-        print_header();
-        while(p!=NULL)
-        {
-            struct_out(p);
-            p=p->next;
-        }
+        p=p0->first;
+
 }
 
 char *gets(char *s)

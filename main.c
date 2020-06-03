@@ -54,14 +54,7 @@ int main()
         fclose(df);
         getchar();
         p = p0->first;
-        printf("\n----------------------------------------------\n");
-        print_header();//вывод списка
-        while(p != NULL)
-        {
-            struct_out(p);
-            p = p->next;//переход
-        }
-        printf("\n----------------------------------------------\n");
+
 
         vibor(p0, sep, s2);
         df = fopen("itog.csv","a");
@@ -81,7 +74,6 @@ int main()
     {
         p1=p->next;
         ClearStructure(p);
-
         p=p1;
     }
     free(p0);

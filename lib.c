@@ -267,7 +267,7 @@ void delete(Head *p0){//удаление элемента
     int n;
     Node *p;
         printf("%s: ","\nPlease enter your number");//поиск элемента для удаления
-        scanf("%d", &n);
+        n==safe_scanf();
         p=select_by_id(p0, n);
         if(p!=NULL)
         {
@@ -538,7 +538,7 @@ void vibor(Head *p0, char sep, char **s2){//выбор пользователя
 
 
                 menu();// вывод меню и считывание
-                scanf("%d", &vibor);
+                vibor=safe_scanf();
                 if (vibor==1){//удаление
                     p=p0->first;
                     delete(p0);
@@ -566,7 +566,7 @@ void vibor(Head *p0, char sep, char **s2){//выбор пользователя
 
                     int vibor2=0;
                     menu2();
-                    scanf("%d", &vibor2);
+                    vibor2=safe_scanf();
                     while (vibor2!=4){
                         char s[21];
                         int kol;
@@ -581,7 +581,7 @@ void vibor(Head *p0, char sep, char **s2){//выбор пользователя
                 if(vibor==5){//редактирование
                     printf("\nEnter nomer cartochki:");
                     int nomer;
-                    scanf("%d", &nomer);
+                    nomer=safe_scanf();
                     p=select_by_id(p0, nomer);
                     if(p!=NULL)
                         {
@@ -591,7 +591,7 @@ void vibor(Head *p0, char sep, char **s2){//выбор пользователя
                         printf("\n----------------------------------------------\n");
                         printf("\nWhat you want to redact? \n 1- fullname\n 2- gender\n 3- year\n 4- code\n 5- course\n 6- group\n 7- ball\n 8- average\n 9- exame1 \n 10- exame2 \n 11- exit \n Your choice: ");
                         int vib;
-                        scanf("%d", &vib);
+                        vib=safe_scanf();
                         char s[10][21];
                         int l=0;
                         int newpole;
@@ -611,7 +611,7 @@ void vibor(Head *p0, char sep, char **s2){//выбор пользователя
                         if(vib==3){
 
                             printf("\nEnter new pole: ");
-                            scanf("%d", &p->year_of_birth);
+                            p->year_of_birth=safe_scanf();
 
                         }
                         if(vib==4){
@@ -624,8 +624,8 @@ void vibor(Head *p0, char sep, char **s2){//выбор пользователя
                         if(vib==5){
 
                             printf("\nEnter new pole: ");
-                            scanf("%d", &newpole);
-                            p->year=newpole;
+
+                            p->year=safe_scanf();
                         }
                         if(vib==6){
 
@@ -637,26 +637,26 @@ void vibor(Head *p0, char sep, char **s2){//выбор пользователя
                         if(vib==7){
 
                             printf("\nEnter new pole: ");
-                            scanf("%d", &newpole);
-                            p->balls=newpole;
+
+                            p->balls=safe_scanf();
                         }
                         if(vib==8){
 
                             printf("\nEnter new pole: ");
-                            scanf("%d", &newpole);
-                            p->average=newpole;
+
+                            p->average=safe_scanf();
                         }
                         if(vib==9){
 
                             printf("\nEnter new pole: ");
-                            scanf("%d", &newpole);
-                            p->exame[0]=newpole;
+
+                            p->exame[0]=safe_scanf();
                         }
                         if(vib==10){
 
                             printf("\nEnter new pole: ");
-                            scanf("%d", &newpole);
-                            p->exame[1]=newpole;
+
+                            p->exame[1]=safe_scanf();
                         }
 
 
@@ -674,7 +674,7 @@ void vibor(Head *p0, char sep, char **s2){//выбор пользователя
                 if(vibor==6){
                     int vibor3;
                     printf("\n Enter kind of sort\n 1- by course\n 2- by year_of_birth\n 3- by average\n 4- exit\n Your choice:");
-                    scanf("%d", &vibor3);
+                    vibor3=safe_scanf();
                     if(vibor3!=4){
 
                         p=p0->first;
